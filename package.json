@@ -1,5 +1,5 @@
 {
-  "name": "find-best-match",
+  "name": "string-best-match",
   "version": "1.0.0",
   "description": "Finds the longest matching substring (or sequence) between two arrays of strings.",
   "type": "module",

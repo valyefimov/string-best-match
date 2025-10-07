@@ -1,6 +1,6 @@
-# find-best-match
+# string-best-match
 
-![npm version](https://img.shields.io/npm/v/find-best-match)
+![npm version](https://img.shields.io/npm/v/string-best-match)
 ![build status](https://img.shields.io/badge/build-passing-brightgreen)
 ![test status](https://img.shields.io/badge/tests-passing-brightgreen)
 
@@ -9,13 +9,13 @@ Finds the longest matching substring (or sequence) between two arrays of strings
 ## Installation
 
 ```bash
-npm install find-best-match
+npm install string-best-match
 ```
 
 ## Usage
 
 ```ts
-import { findBestMatch } from 'find-best-match';
+import { findBestMatch } from 'string-best-match';
 
 const source = ['A', 'B', 'C', 'D', 'E'];
 const target = ['X', 'B', 'C', 'D', 'Y'];
