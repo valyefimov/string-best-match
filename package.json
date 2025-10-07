@@ -5,6 +5,10 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valyefimov/string-best-match.git"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
