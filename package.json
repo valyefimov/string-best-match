@@ -1,0 +1,35 @@
+{
+  "name": "find-best-match",
+  "version": "1.0.0",
+  "description": "Finds the longest matching substring (or sequence) between two arrays of strings.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "string",
+    "array",
+    "match",
+    "highlight",
+    "sequence",
+    "utility"
+  ],
+  "author": "Valentyn <you@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.4"
+  }
+}
