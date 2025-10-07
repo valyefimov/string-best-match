@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { findBestMatch } from '../src/findBestMatch.js';
+import { findBestMatch } from '../src/findBestMatch';
 
 describe('findBestMatch', () => {
   it('finds longest partial match between arrays', () => {
