@@ -1,6 +1,6 @@
 {
   "name": "string-best-match",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Finds the longest matching substring (or sequence) between two arrays of strings.",
   "type": "module",
   "main": "dist/index.js",
