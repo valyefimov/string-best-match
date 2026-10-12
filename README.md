@@ -17,12 +17,7 @@ npm install string-best-match
 - **Node.js**: 14.0.0+ (ES2020 or later)
 - **TypeScript**: 4.0+ (if using TypeScript)
 
-This library uses **BigInt** for precise hash calculations, which requires ES2020 or later. BigInt is supported in:
-- Node.js 10.4.0+
-- Chrome 67+
-- Firefox 68+
-- Safari 14+
-- Edge 79+
+Tokens are hashed as whole strings using plain `number` arithmetic (no BigInt required). The package is published as native ESM and can be imported directly by Node.js.
 
 ## Usage
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { findBestMatch } from "../src/findBestMatch";
 
 describe("findBestMatch", () => {
@@ -110,5 +111,45 @@ describe("findBestMatch", () => {
     expect(result).toEqual({ startIndex: 10000, sequenceLength: 500 });
     // Should complete in reasonable time (< 1 second for 100k total elements)
     expect(endTime - startTime).toBeLessThan(1000);
+  });
+});
+
+describe("findBestMatch regressions (issue #7)", () => {
+  it("does not throw on empty-string tokens", () => {
+    expect(findBestMatch(["a", ""], ["a", ""])).toEqual({
+      startIndex: 0,
+      sequenceLength: 2,
+    });
+    expect(findBestMatch(["x", "", "y"], ["", "y"])).toEqual({
+      startIndex: 0,
+      sequenceLength: 2,
+    });
+  });
+
+  it("distinguishes tokens that share the same first character", () => {
+    const result = findBestMatch(["t1", "t2", "t3"], ["t9", "t2", "t3"]);
+    expect(result).toEqual({ startIndex: 1, sequenceLength: 2 });
+  });
+
+  it("does not degrade when many tokens share a first letter", () => {
+    const source = Array.from({ length: 4000 }, (_, i) => `t${i}`);
+    const target = Array.from({ length: 4000 }, (_, i) => `t${i + 2000}`);
+
+    const start = performance.now();
+    const result = findBestMatch(source, target);
+    const elapsed = performance.now() - start;
+
+    expect(result).toEqual({ startIndex: 0, sequenceLength: 2000 });
+    expect(elapsed).toBeLessThan(300);
+  });
+});
+
+describe("published ESM build", () => {
+  it("uses explicit file extensions in relative imports", () => {
+    const index = readFileSync(
+      new URL("../src/index.ts", import.meta.url),
+      "utf8",
+    );
+    expect(index).toMatch(/from '\.\/findBestMatch\.js'/);
   });
 });
