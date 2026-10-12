@@ -1,1 +1,1 @@
-export { findBestMatch, type BestMatchResult } from './findBestMatch';
+export { findBestMatch, type BestMatchResult } from './findBestMatch.js';

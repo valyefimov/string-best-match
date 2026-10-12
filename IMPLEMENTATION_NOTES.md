@@ -68,15 +68,9 @@ Once all hashes are computed for both arrays:
 2. If a hash match is found, verify it's not a collision by comparing the actual substrings
 3. Return the first valid match found
 
-### 4. BigInt for Precision
+### 4. Token Ids and Plain Numbers
 
-JavaScript's standard `number` type uses 64-bit floating point, which loses precision for integers larger than 2^53 - 1 (≈ 9 × 10^15).
-
-Since our hash calculations involve:
-- BASE = 1,000,000,007
-- BASE² ≈ 10^18 (larger than 2^53)
-
-We use **BigInt** to maintain precision during modular arithmetic operations.
+Each distinct token is mapped once to a small integer id (shared by both arrays), so the whole token takes part in hashing and exact comparison, not just its first character. The modulus is kept below 2^26, so every intermediate product stays under 2^53 and plain `number` arithmetic is exact; BigInt is not needed.
 
 ## Hash Constants
 
@@ -113,7 +107,6 @@ These constants are chosen to:
 ### Disadvantages
 - More complex implementation than naive approach
 - Slight overhead for very small arrays (< 100 elements)
-- Requires BigInt support (ES2020+)
 
 ## Use Cases
 

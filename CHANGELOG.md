@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Published ESM build is now importable by Node.js: `src/index.ts` imports `./findBestMatch.js`, `tsconfig.json` uses `NodeNext`, and `types` comes first in the `exports` map
+- Empty strings in input arrays no longer throw `RangeError`
+- Whole tokens are hashed (via integer ids) instead of only the first character, removing the quadratic slowdown for tokens sharing an initial letter
+- Hashing uses plain numbers instead of BigInt
+
 ### Changed
 - **BREAKING**: Replaced naive O(N×M) algorithm with Rolling Hash (Rabin-Karp) + Binary Search algorithm
 - Algorithm now runs in O((N+M) × log(min(N,M))) time complexity instead of O(N×M)
