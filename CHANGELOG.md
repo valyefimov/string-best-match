@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- CommonJS build (`dist/cjs`) and a `require` condition in the `exports` map, so `require('string-best-match')` works (fixes #19)
+
 ### Fixed
 - Published ESM build is now importable by Node.js: `src/index.ts` imports `./findBestMatch.js`, `tsconfig.json` uses `NodeNext`, and `types` comes first in the `exports` map
 - Empty strings in input arrays no longer throw `RangeError`
