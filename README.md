@@ -17,7 +17,7 @@ npm install string-best-match
 - **Node.js**: 14.0.0+ (ES2020 or later)
 - **TypeScript**: 4.0+ (if using TypeScript)
 
-Tokens are hashed as whole strings using plain `number` arithmetic (no BigInt required). The package is published as native ESM and can be imported directly by Node.js.
+Tokens are hashed as whole strings using plain `number` arithmetic (no BigInt required). The package is published as native ESM and can be imported directly by Node.js. A CommonJS build is also shipped, so `require('string-best-match')` works too.
 
 ## Usage
 
